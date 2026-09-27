@@ -60,7 +60,6 @@ function DateCounter() {
 
   function reset() {
     dispatch({ type: "reset" });
-    setStep(1);
   }
 
   return (
