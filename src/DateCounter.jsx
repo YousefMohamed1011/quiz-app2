@@ -3,7 +3,7 @@ import { useReducer } from "react";
 const initialCount = {
   count: 0,
   step: 1,
-}
+};
 
 function reducer(state, action) {
   switch (action.type) {
@@ -25,10 +25,8 @@ function reducer(state, action) {
 }
 
 function DateCounter() {
-
   const [state, dispatch] = useReducer(reducer, initialCount);
-  const { count, step } = state
-
+  const { count, step } = state;
 
   const date = new Date("June 21 2027");
   date.setDate(date.getDate() + count);
@@ -78,11 +76,7 @@ function DateCounter() {
       <div>
         <button onClick={dec}>-</button>
 
-        <input
-          type="number"
-          value={count}
-          onChange={defineCount}
-        />
+        <input type="number" value={count} onChange={defineCount} />
 
         <button onClick={inc}>+</button>
       </div>
