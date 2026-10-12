@@ -5,7 +5,7 @@ import Error from "./Error";
 import StartScreen from "./StartScreen";
 import Quiz from "./Quiz";
 
-export default function QuizApp({ questions, status, dispatch, index }) {
+export default function QuizApp({ questions, status, dispatch, index, answer }) {
   return (
     <div className="app">
       <Header />
@@ -16,7 +16,7 @@ export default function QuizApp({ questions, status, dispatch, index }) {
           <StartScreen dispatch={dispatch} questions={questions} />
         )}
         {status === "active" && questions[index] && (
-          <Quiz questions={questions[index]} />
+          <Quiz questions={questions[index]} answer={answer} dispatch={dispatch} />
         )}
       </Main>
     </div>

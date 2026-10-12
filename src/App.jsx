@@ -5,7 +5,7 @@ import QuizApp from "./quizApp";
 const initialvalue = {
   questions: [],
   status: "loading",
-  index:0
+  index: 0
 };
 function reducer(state, action) {
   switch (action.type) {
@@ -25,13 +25,18 @@ function reducer(state, action) {
         ...state,
         status: "active",
       };
+    case "newAnswer":
+      return {
+        ...state,
+        answer: action.payload,
+      };
     default:
       throw new Error("Unknown action");
   }
 }
 function App() {
   const [state, dispatch] = useReducer(reducer, initialvalue);
-  const { questions, status ,index } = state;
+  const { questions, status, index, answer } = state;
   useEffect(() => {
     async function GetQusetions() {
       try {
@@ -48,7 +53,7 @@ function App() {
   }, []);
   return (
     // <DateCounter/>
-    <QuizApp questions={questions} status={status} dispatch={dispatch} index={index} />
+    <QuizApp questions={questions} status={status} dispatch={dispatch} index={index} answer={answer} />
   );
 }
 
