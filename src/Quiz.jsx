@@ -1,20 +1,57 @@
-export default function Quiz({ questions, dispatch, answer }) {
+import Progress from "./progres";
+
+export default function Quiz({
+  question,
+  questions,
+  dispatch,
+  answer,
+  points,
+  index,
+  numQuestions,
+  maxPossiblePoints,
+}) {
+  const currentQuestion = question || questions;
+  const hasAnswered = answer !== null;
+
   return (
     <div className="Quiz">
-      <h4>{questions.question}</h4>
+      <Progress
+        index={index}
+        numQuestions={numQuestions}
+        points={points}
+        maxPossiblePoints={maxPossiblePoints}
+        answer={answer}
+      />
+      <h4>{currentQuestion.question}</h4>
 
       <div className="options">
-        {questions.options.map((option, index) => (
+        {currentQuestion.options.map((option, optIndex) => (
           <button
-            className={`btn btn-option ${index === answer ? 'answer' : ''}`}
-            disabled={answer}
+            className={`btn btn-option ${optIndex === answer ? "answer" : ""} ${
+              hasAnswered
+                ? optIndex === currentQuestion.correctOption
+                  ? "correct"
+                  : "wrong"
+                : ""
+            }`}
+            disabled={hasAnswered}
             key={option}
-            onClick={() => { console.log(option), dispatch({ type: 'newAnswer', payload: index }) }}
+            onClick={() => {
+              dispatch({ type: "newAnswer", payload: optIndex });
+            }}
           >
             {option}
           </button>
         ))}
       </div>
+      {hasAnswered && (
+        <button
+          className="btn btn-ui"
+          onClick={() => dispatch({ type: "nextQuestion" })}
+        >
+          Next
+        </button>
+      )}
     </div>
   );
 }
