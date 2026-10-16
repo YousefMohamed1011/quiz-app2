@@ -1,5 +1,5 @@
 import Header from "./Header";
-import Main from "./Main";
+import Main from "./MainContent";
 import Loader from "./Loader";
 import Error from "./Error";
 import StartScreen from "./StartScreen";
