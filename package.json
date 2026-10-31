@@ -11,8 +11,10 @@
     "server": "json-server data/questions.json --port 8000"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.1.1",
