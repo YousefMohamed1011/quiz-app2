@@ -98,4 +98,5 @@ function ContactSave() {
   );
 }
 
+export { ContactSave };
 export default ContactSave;

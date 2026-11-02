@@ -1,7 +1,8 @@
 {
-  "name": "quiz-app2",
+  "name": "react-learning-lab",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "React Course Practice Lab - Components, State, Forms, and HTTP Requests (Fetch & Axios)",
   "type": "module",
   "scripts": {
     "dev": "vite",

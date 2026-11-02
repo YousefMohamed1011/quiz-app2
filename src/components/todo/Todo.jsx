@@ -1,19 +1,19 @@
 import { useState } from "react";
-import "./ToDo.css";
+import "./Todo.css";
 
-function ToDO() {
-  const [Todo, setTodo] = useState([]);
+export function Todo() {
+  const [todoList, setTodoList] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
   const handleAdd = (e) => {
     e.preventDefault();
     if (!inputValue.trim()) return;
-    setTodo([...Todo, inputValue.trim()]);
+    setTodoList([...todoList, inputValue.trim()]);
     setInputValue("");
   };
 
   const handleRemove = (indexToRemove) => {
-    setTodo(Todo.filter((_, i) => i !== indexToRemove));
+    setTodoList(todoList.filter((_, i) => i !== indexToRemove));
   };
 
   return (
@@ -33,10 +33,10 @@ function ToDO() {
         </form>
 
         <div className="todo-list">
-          {Todo.length === 0 ? (
+          {todoList.length === 0 ? (
             <p className="empty-msg">No tasks yet!</p>
           ) : (
-            Todo.map((item, index) => (
+            todoList.map((item, index) => (
               <div key={index} className="todo-item">
                 <p>{item}</p>
                 <button type="button" onClick={() => handleRemove(index)}>
@@ -51,4 +51,5 @@ function ToDO() {
   );
 }
 
-export default ToDO;
+export default Todo;
+
